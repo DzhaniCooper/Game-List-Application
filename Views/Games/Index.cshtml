@@ -1,0 +1,75 @@
+﻿@model IEnumerable<MvcGame.Models.Game>
+
+@{
+    ViewBag.Title = "Welcome";
+}
+
+<h1 style="text-align:center">Welcome to my Game List</h1>
+<br />
+
+<p style="text-align:center">
+   
+       
+    @using (Html.BeginForm())
+    {
+    <p style="text-align:center">
+        <a href="http://gamelist.dcooper.co.uk/" class="btn btn-secondary" style="float:left; color:black">Home</a>
+        Genre: @Html.DropDownList("gameGenre", "All")
+        Title: @Html.TextBox("SearchString")
+        <input type="submit" value="Filter" class="btn btn-secondary" style="color:black" />
+        <button type="button" class="btn btn-secondary" style="float:right">@Html.ActionLink("Create New", "Create")</button>
+</p>
+    }
+
+ </p>
+
+<table class="table table-hover" style="color:black">
+    <thead>
+        <tr class="table-dark">
+            <th scope="col">@Html.DisplayNameFor(model => model.ImgUrl)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Title)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.ReleaseDate)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Genre)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Price)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Rating)</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+
+
+        @foreach (var item in Model)
+        {
+            <tr class="table-dark">
+                <td>
+                   <img src="@Html.DisplayFor(modelItem => item.ImgUrl)" width="150px" height="150px" />
+                </td>
+                <td>                 
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ReleaseDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Genre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rating)
+                </td>
+                <td>
+                    <button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { id = item.ID })</button> |
+                    <button type="button" class="btn btn-warning">@Html.ActionLink("Details", "Details", new { id = item.ID })</button> |
+                    <button type="button" class="btn btn-warning">@Html.ActionLink("Delete", "Delete", new { id = item.ID })</button>
+                </td>
+            </tr>
+        }
+
+    </table>
+
+<hr />
+<footer style="text-align:center">
+    <p>&copy; @DateTime.Now.Year - Game App D.Cooper</p>
+</footer>
+

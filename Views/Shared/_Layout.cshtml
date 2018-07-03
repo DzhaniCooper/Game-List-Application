@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html style="height:100%; background-size:cover">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Game App</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body class="img-responsive" style="background-image: url('../../cata.jpg'); background-repeat: no-repeat; background-size: cover; height: 100%; background-attachment:fixed">
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+        <footer style="text-align:center">
+            <p>&copy; @DateTime.Now.Year - Game App D.Cooper</p>
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

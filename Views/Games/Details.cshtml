@@ -1,0 +1,60 @@
+﻿@model MvcGame.Models.Game
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h1 style="text-align:center">Here is your Game Details</h1>
+<br /><br /><br />
+<div style="float:right; padding-top:15%;width:500px">
+    <h2>The programmer got stuck in the shower because the instructions on the shampoo bottle said: <br />
+    Lather, Rinse, Repeat! <br /> -Anonymous</h2>
+</div>
+<div>
+   
+  
+    <dl class="dl-horizontal">
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt>
+            <img src="@Html.DisplayFor(model => model.ImgUrl)" width="150px" height="150px" />
+        </dt>
+        <dd>
+        </dd>
+
+    </dl>
+</div>
+<p>
+    <button type="button" class="btn btn-warning">@Html.ActionLink("Edit", "Edit", new { id = Model.ID })</button>
+    <button type="button" class="btn btn-warning">@Html.ActionLink("Back to List", "Index")</button>
+</p>
+<hr />
+<footer style="text-align:center">
+    <p>&copy; @DateTime.Now.Year - Game App D.Cooper</p>
+</footer>
